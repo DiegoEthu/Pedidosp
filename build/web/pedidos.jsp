@@ -12,11 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Pedidos</h1>
+        <h1>Pedidos De Trentino</h1>
         <%
             
    String pro=request.getParameter("selectpro");
+ String codprom=request.getParameter("selectprom");
+ 
+ 
    double pre=Double.parseDouble
+           
    (request.getParameter("txtpre"));
     int can=Integer.parseInt
         (request.getParameter("txtcan"));
@@ -25,17 +29,21 @@
      
     
     double subtotal=can*pre*prom;
-    double igv=subtotal*0.18;
+    double total=subtotal%.25;
     
     %>
     Producto: <%=pro%><br>
     precio: <%=pre%><br>
     cantidad: <%=can%><br>
     promocion: <%=prom%><br>
-   
+    <br>
     
+    total:<%=subtotal%><br>
+   
+        <br>
+     <div>Descargar Pedidos</div>
+        <a href="/Pedidosp/descargars">Descargar</a>
+        
     <a href="index.html">
         volver principal
-       
-    </body>
 </html>
